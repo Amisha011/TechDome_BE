@@ -5,7 +5,7 @@ const LoanDetails = mongoose.model("LoanDetails");
 
 router.post("/createLoan", (req, res) => {
   const { userId, amount, terms, loanStatus } = req.body;
-  console.log("req", req.body);
+
   if (!amount || !terms || !loanStatus) {
     return res.status(422).json({ error: "please add all the fields" });
   }
@@ -20,7 +20,7 @@ router.post("/createLoan", (req, res) => {
     .save()
     .then(
 
-      res.json({ message: " successfull" })
+      res.json({ message: "Successfully created a Loan !!" })
     )
     .catch((err) => {
       console.log(err);
@@ -37,6 +37,7 @@ router.get("/getAllLoansById/:id", async (req, res) => {
    
   }
 });
+
 router.get("/getAllLoans", async (req, res) => {
   try {
     const allLoans = await LoanDetails.find({}).exec();

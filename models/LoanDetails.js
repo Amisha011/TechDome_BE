@@ -28,8 +28,6 @@ const loanSchema = new mongoose.Schema(
     installments: {
       type: Array,
     },
-    resetToken: String,
-    expireToken: Date,
   },
   {
     timestamps: true,
